@@ -1,5 +1,6 @@
 import { resetScale } from './scale.js';
 
+
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
