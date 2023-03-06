@@ -12,6 +12,7 @@ const onSendDataSuccess = () => {
 };
 
 const onSendDataError = () => {
+  hideModal();
   showErrorMessage();
 };
 
