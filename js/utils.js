@@ -37,4 +37,13 @@ const showAlert = (message) => {
 };
 
 
-export { getRandomPositiveInteger, proofMaxLeight, getRandomArrayElement, showAlert};
+function debounce (callback, timeoutDelay = 500) {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+}
+
+
+export { getRandomPositiveInteger, proofMaxLeight, getRandomArrayElement, showAlert, debounce};

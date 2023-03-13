@@ -3,8 +3,15 @@ import { getData, sendData } from './api.js';
 import  { showAlert } from './utils.js';
 import { setOnFormSubmit, hideModal } from './form.js';
 import { showSuccessMessage, showErrorMessage } from './message.js';
+import { setOnFilterClick, turnFilterOn, filterPictures } from './filter.js';
 
 //renderPictures(getPictures());
+
+const onGetDataSuccess = (data) => {
+  turnFilterOn(data);
+  renderPictures(filterPictures());
+  setOnFilterClick(renderPictures);
+};
 
 const onSendDataSuccess = () => {
   hideModal();
@@ -12,7 +19,6 @@ const onSendDataSuccess = () => {
 };
 
 const onSendDataError = () => {
-  hideModal();
   showErrorMessage();
 };
 
@@ -20,4 +26,4 @@ setOnFormSubmit(async(data)=>{
   await sendData(onSendDataSuccess, onSendDataError, data);
 });
 
-getData(renderPictures, showAlert);
+getData(onGetDataSuccess, showAlert);

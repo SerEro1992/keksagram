@@ -24,6 +24,7 @@ const createPicture = (data) =>{
 
 //  визуализация изображения
 const renderPictures = (pictures) => {
+  container.querySelectorAll('.picture').forEach((element) => element.remove());
   const fragment = document.createDocumentFragment();
   pictures.forEach((picture) => {
     const pictureElement = createPicture(picture);
